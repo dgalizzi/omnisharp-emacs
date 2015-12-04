@@ -13,7 +13,7 @@ solution files were found."
       (locate-dominating-file
        (file-name-directory buffer-file-name)
        (lambda (file)
-	 (-when-let (dir-files (directory-files file nil "\\.sln$"))
+	 (-when-let (dir-files (directory-files file nil "\\.sln$\|^project.json$"))
 	   (setq solutions (cons (file-name-as-directory file)
 				 dir-files))))))
     solutions))
