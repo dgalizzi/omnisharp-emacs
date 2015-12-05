@@ -20,9 +20,9 @@ solution files were found."
 
 (defun omnisharp--start-omnisharp-server-for-solution-in-parent-directory ()
   (unless (omnisharp--check-alive-status-worker)
-    (-if-let ((directory file . _rest) (omnisharp--find-solution-files))
+    (-if-let ((directory file . rest) (omnisharp--find-solution-files))
 	(omnisharp-start-omnisharp-server
-	 (if (null _rest) ; only one solution found
+	 (if (null rest) ; only one solution found
 	     (concat directory file)
 	   (read-file-name "Select solution for current file: "
 			   directory
